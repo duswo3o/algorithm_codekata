@@ -9,7 +9,13 @@ text = 'try hello python'
 #     else:
 #         answer += t.lower()
 
-answer = [t.upper() if i%2 == 0 else t.lower() for i, t in enumerate(text)]
+# answer = [t.upper() if i%2 == 0 else t.lower() for i, t in enumerate(text)]
 
-print(''.join(answer))
+# print(''.join(answer))
 
+
+def solution(text):
+    answer = [t.upper() if i%2 == 0 else t.lower() for i, t in enumerate(text)]
+    return ''.join(answer)
+
+print(solution(text))
