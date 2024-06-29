@@ -3,18 +3,34 @@
 
 text = 'try hello python'
 
-n = 0
-answer = ''
-for i in text:
-    if i == ' ':
-        answer+=i
-        n = 0
-    else:
-        if n % 2 == 0:
-            answer += i.upper()
-            n+=1
-        else:
-            answer += i.lower()
-            n+=1
+# n = 0
+# answer = ''
+# for i in text:
+#     if i == ' ':
+#         answer+=i
+#         n = 0
+#     else:
+#         if n % 2 == 0:
+#             answer += i.upper()
+#             n+=1
+#         else:
+#             answer += i.lower()
+#             n+=1
 
-print(answer)
+def solution(text):
+    n = 0
+    answer = ''
+    for i in text:
+        if i == ' ':
+            answer+=i
+            n = 0
+        else:
+            if n % 2 == 0:
+                answer += i.upper()
+                n+=1
+            else:
+                answer += i.lower()
+                n+=1
+    return answer
+
+print(solution(text))
