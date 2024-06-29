@@ -1,12 +1,15 @@
 # 이상한 문자 만들기
 
 text = 'try hello python'
-answer = ''
+# answer = ''
 
-for i, t in enumerate(text):
-    if i%2 == 0:
-        answer += t.upper()
-    else:
-        answer += t.lower()
+# for i, t in enumerate(text):
+#     if i%2 == 0:
+#         answer += t.upper()
+#     else:
+#         answer += t.lower()
 
-print(answer)
+answer = [t.upper() if i%2 == 0 else t.lower() for i, t in enumerate(text)]
+
+print(''.join(answer))
+
