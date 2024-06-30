@@ -25,7 +25,7 @@ def solution2(numbers):
     for i in range(n-2):
         for j in range(i+1, n-1):
             for k in range(j+1, n):
-                if q[i] + q[j] + q[k] == 0:
+                if numbers[i] + numbers[j] + numbers[k] == 0:
                     answer +=1
     return answer
 
