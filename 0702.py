@@ -10,3 +10,13 @@ for i in sizes:
     length.append(min(i))
 
 print(max(width) * max(length))
+
+def solution(sizes):
+    width =  []
+    length = []
+
+    for i in sizes:
+        width.append(max(i))
+        length.append(min(i))
+
+    return max(width) * max(length)
