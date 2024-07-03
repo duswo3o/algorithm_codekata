@@ -1,17 +1,18 @@
 # 시저 암호
 
-s = "zZ"
-n = 1
+s = "yY"
+n = 2
 
-answer = []
-for i in s:
-    if i == " ":
-        answer.append(" ")
-    elif (i == 'z') or (i == 'Z'):
-        answer.append(chr(ord(i)-26+n))
-    else:
-        answer.append(chr(ord(i)+n))
+def solution(s, n):
+    answer = []
+    for i in s:
+        if i == " ":
+            answer.append(" ")
+        elif (ord(i)+n > ord('z')) or (ord(i)+n >= ord('Z')):
+            answer.append(chr(ord(i)-26+n))
+        else:
+            answer.append(chr(ord(i)+n))
+    return ''.join(answer)
 
-
-print(''.join(answer))
+print(solution(s,n))
     
