@@ -4,14 +4,14 @@ s = "aAzZ"
 n = 25
 
 def solution(s, n):
-    answer = []
+    answer = ''
     for i in s:
         if i == " ":
-            answer.append(" ")
+            answer+=" "
         elif (ord(i) <= ord('Z') and ord(i)+n > ord('Z')) or (ord(i)+n > ord('z')):
-            answer.append(chr(ord(i)-26+n))
+            answer += chr(ord(i)-26+n)
         else:
-            answer.append(chr(ord(i)+n))
-    return ''.join(answer)
+            answer += chr(ord(i)+n)
+    return answer
 
 print(solution(s,n)) 
