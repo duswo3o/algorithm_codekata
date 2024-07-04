@@ -4,7 +4,9 @@ num_dict = ["zero", "one", "two", "three", "four",
             "five", "six", "seven", "eight", "nine"]
 s = "one4seveneight"
 
-for i in range(10):
-    s = s.replace(num_dict[i], f"{i}")
+def solution(s):
+    for i in range(10):
+        s = s.replace(num_dict[i], f"{i}")
+    return s
 
-print(s)
+print(solution(s))
