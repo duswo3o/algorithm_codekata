@@ -3,11 +3,15 @@
 strings = ["sun", "bed", "car"]
 n = 1
 
-new_sort = {}
-for i in strings:
-    new_sort[i[n]] = i
+def solution(strings, n):
+    new_sort = {}
 
-print(sorted(new_sort.keys()))
+    for i in strings:
+        new_sort[i[n]] = i
 
-answer = [new_sort[i] for i in sorted(new_sort.keys())]
-print(answer)
+    return [new_sort[i] for i in sorted(new_sort.keys())]
+
+    # answer = [new_sort[i] for i in sorted(new_sort.keys())]
+    # print(answer)
+
+print(solution(strings,n))
