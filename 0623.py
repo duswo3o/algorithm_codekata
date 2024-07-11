@@ -3,7 +3,7 @@
 def solution(price, money, count):
     for i in range(count):
         money -= price*(i+1)
-    return abs(money)
+    return abs(money) if money < 0 else 0
 
 
 
