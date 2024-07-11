@@ -1,13 +1,16 @@
 # 명예의 전당
 
 def solution(k, score):
-    hof = sorted(score[:k], reverse=True)
-    result = [hof[-1]]*k
+    hof = [score[0]]
+    result = [hof[-1]]
 
-    for i in range(k, len(score)):
+    for i in range(1, len(score)):
         hof.append(score[i])
         hof.sort(reverse=True)
-        hof.pop()
+
+        if len(hof) > k:
+            hof.pop()
+            
         result.append(hof[-1])
 
     return result
