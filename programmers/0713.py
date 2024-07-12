@@ -2,14 +2,14 @@
 
 from collections import deque
 def solution(cards1, cards2, goal):
-    l = len(goal)
+    # l = len(goal)
     cards1 = deque(cards1)
     cards2 = deque(cards2)
     goal = deque(goal)
 
     c1, c2= cards1.popleft(), cards2.popleft()
 
-    for i in range(l):
+    while goal:
         g = goal.popleft()
         if g not in [c1,c2]:
             return "No"
