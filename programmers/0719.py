@@ -3,15 +3,9 @@
 
 def solution(lottos, win_nums):
     lotto_rank ={0:6, 1:6, 2:5, 3:4, 4:3, 5:2, 6:1}
-    lottos = set(lottos)
-    win_nums = set(win_nums)
 
-    if len(lottos) != 6:
-        unknown_lotto = 7 - len(lottos)
-    else:
-        unknown_lotto = 0
-
-    correct_lotto = len(lottos)+len(win_nums) - len(lottos | win_nums)
+    unknown_lotto = lottos.count(0)
+    correct_lotto = len(set(lottos) & set(win_nums))
 
     return [lotto_rank[unknown_lotto+correct_lotto], lotto_rank[correct_lotto]]
 
