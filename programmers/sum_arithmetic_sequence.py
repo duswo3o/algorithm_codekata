@@ -8,8 +8,13 @@ def solution(a,d,included):
     return answer
 
 
-def test_solution(a,d,included):
-    return sum([a+d*i for i in range(len(included)) if included[i]==True])
+# def test_solution(a,d,included):
+#     return sum([a+d*i for i in range(len(included)) if included[i]==True])
+
+
+test_solution = lambda a,d,included: sum([a+d*i for i in range(len(included)) if included[i]==True])
+
+
 
 
 print(solution(3,4,[True, False, False, True, True]))
