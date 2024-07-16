@@ -50,19 +50,21 @@
 from collections import Counter
 
 def solution(X,Y):
-    X, Y = Counter(X), Counter(Y)
+    X, Y = Counter(X), Counter(Y) # 각 문자의 개수 딕셔너리
 
-    common = set(X.keys())&set(Y.keys())
-    if common == set("0"):
+    common = set(X.keys())&set(Y.keys()) # 공통된 문자 집합
+
+    # 문자를 숫자형으로 변환하고 다시 문자형으로 변환하는 과정에서 시간초과 오류 발생!
+    if common == set("0"): # 공통된 문자가 0밖에 없는 경우
         return "0"
 
     common_dict = {}
 
     for c in common:
-        common_dict[c] = min(X[c], Y[c])
+        common_dict[c] = min(X[c], Y[c]) # 공통된 문자의 최소 개수
 
     l = []
-    for i in common_dict.items():
+    for i in common_dict.items(): # (공통된 문자, 개수)로 된 튜플에서 리스트에 문자*개수 추가
             l.append(i[0]*i[1])
 
     return ''.join(sorted(l, reverse=True)) if len(l)!=0 else "-1"
