@@ -59,18 +59,35 @@ class MyHeap:
                 self.arr[now_idx], self.arr[compare_idx] = self.arr[compare_idx], self.arr[now_idx]
                 now_idx = compare_idx
         return root
+#
+#
+#
+# h = MyHeap()
+# for _ in range(int(input())):
+#     n = int(input())
+#     if n == 0:
+#         print(h.remove())
+#         # print(h.arr)
+#         continue
+#     h.insert(n)
+#     # print(h.insert(n))
+
+########################################################################################
 
 
+# heapq 사용해서 풀기
 
-h = MyHeap()
+import sys
+from heapq import heappush, heappop
+
+my_heap = []
+
 for _ in range(int(input())):
-    n = int(input())
+    n = int(sys.stdin.readline())
     if n == 0:
-        print(h.remove())
-        # print(h.arr)
-        continue
-    h.insert(n)
-    # print(h.insert(n))
-
-
-
+        if len(my_heap) == 0:
+            print(0)
+        else:
+            print(heappop(my_heap))
+    else:
+        heappush(my_heap, n)
