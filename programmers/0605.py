@@ -1,3 +1,3 @@
 # 문자열을 정수로 바꾸기
 
-solution = lambda n : int(s)
+solution = lambda s : int(s)
