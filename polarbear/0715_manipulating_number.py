@@ -12,4 +12,4 @@ def solution(n, control):
             n -= 10
     return n
 
-print(solution(0,"wsdawsdassw"))
+print( solution(0,"wsdawsdassw") )
