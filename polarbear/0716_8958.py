@@ -3,8 +3,8 @@
 import sys
 
 def score(s):
-    total = 0
-    accumulation = 0
+    total = 0 # 최종점수
+    accumulation = 0 # 현재 누적점수
 
     for i in s:
         if i == 'O':
