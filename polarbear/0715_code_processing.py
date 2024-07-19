@@ -3,7 +3,7 @@
 def solution(code):
     mode = True # 시작 모드
     answer = ""
-    for i,c in enumerate(code):
+    for i, c in enumerate(code):
         if c == "1": # 문자열을 반복하다가 1을 만나면 모드 변경
             mode = not mode
             continue
