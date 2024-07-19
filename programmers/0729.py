@@ -13,19 +13,29 @@ def solution(today, terms, privacies):
         date, t = p.split()
         year, month, day = map(int, date.split('.'))
         month += due[t]
+        day -= 1
 
         if month > 12:
             month -= 12
             year += 1
+
+        if day == 0:
+            month -= 1
+            day = 28
+            if month == 0:
+                year -= 1
+                month = 12
 
         if (year < today_y) or (year == today_y and month < today_m) or (year == today_y and month == today_m and day < today_d):
             result.append(i+1)
 
     return result
 
-# print(solution("2022.05.19",["A 6", "B 12", "C 3"],["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
-# print(solution("2020.01.01",["Z 3", "D 5"], ["2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"]))
-print(solution("2022.05.19",["A 6", "B 12", "C 3"],["2022.02.19 C"]))
+
+
+print(solution("2022.05.19",["A 6", "B 12", "C 3"],["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
+print(solution("2020.01.01",["Z 3", "D 5"], ["2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"]))
+print(solution("2020.10.15", ["A 100"], ["2018.06.16 A", "2008.02.15 A"]))
 
 
 
