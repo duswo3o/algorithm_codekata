@@ -1,4 +1,4 @@
-# 단어공부
+# 단어 공부
 
 def find_most_used_alphabet(s):
     s = [i.upper() for i in s]
