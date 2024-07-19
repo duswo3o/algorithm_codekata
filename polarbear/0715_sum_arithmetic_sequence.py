@@ -11,7 +11,7 @@ def solution(a,d,included):
 # def test_solution(a,d,included):
 #     return sum([a+d*i for i in range(len(included)) if included[i]==True])
 
-
+# 숏코딩
 test_solution = lambda a,d,included: sum([a+d*i for i in range(len(included)) if included[i]==True])
 
 
