@@ -30,10 +30,12 @@ for _ in range(int(input())): # 네트워크 상에 연결되어 있는 컴퓨�
     network[a].add(b)
     network[b].add(a)
 
-virus = [] # 바이러스가 퍼진 곳
-will_visit = [1] # 1번에서 바이러스 감염 시작
+virus_bfs = [] # 바이러스가 퍼진 곳
+virus_dfs = []
+will_visit_dfs = [1] # 1번에서 바이러스 감염 시작
+will_visit_bfs = deque([1])
 
-print(dfs(network, virus, will_visit))
-print(len(dfs(network, virus, will_visit))-1)
-print(bfs(network, virus, deque(will_visit)))
-print(len(bfs(network, virus, deque(will_visit)))-1)
+print("깊이 우선 탐색 방문 순서 : ",dfs(network, virus_dfs, will_visit_dfs))
+print(len(dfs(network, virus_dfs, will_visit_dfs))-1)
+print("넓이 우선 탐색 방문 순서 : ",bfs(network, virus_bfs, will_visit_bfs))
+print(len(bfs(network, virus_bfs, will_visit_bfs))-1)
