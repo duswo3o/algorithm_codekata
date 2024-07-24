@@ -1,23 +1,23 @@
 # 블록 놀이
 
-
+# n = 가준 인덱스 , 등차 = k, 블록 배열 = block
 def change_block(n, k, block):
-    c = 0
+    c = 0 # 바꾸어야 하는(쌓거나 빼야하는) 블럭의 수
     for b in range(len(block)):
-        if b < n:
-            if block[b] != block[n]-k*(n-b): c +=1
-        else:
+        if b < n: # 기준 인덱스보다 낮은 경우
+            if block[b] != block[n]-k*(n-b): c +=1 # 기준 인덱스와의 등차가 일치하지 않는 경우
+        else: # 기준 인덱스보다 크커나 같은 경우
             if block[b] != block[n]+k*(b-n): c +=1
     return c
 
-N, K = map(int, input().split())
-block = list(map(int, input().split()))
+N, K = map(int, input().split()) # 블럭의 수, 블럭의 차
+block = list(map(int, input().split())) # 블럭
 change = N-1
 
-for n in range(N):
-    if block[n] - K*n < 1:
-        continue
-    change = min(change, change_block(n, K, block))
+for n in range(N): # 모든 블럭을 탐색
+    if block[n] - K*n < 1: # 첫 번째 항이 1보다 작은 경우
+        continue # 해당 블럭을 기준으로 등차를 생성 할 수 없음
+    change = min(change, change_block(n, K, block)) # 수정해야 하는 블럭의 최소 개수
 print(change)
 
 
