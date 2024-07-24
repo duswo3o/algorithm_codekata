@@ -4,11 +4,12 @@ import sys
 
 N = int(sys.stdin.readline())
 
-num =[0]*100001
+num =[0]*100001 # 키운트 배열 생성
 for _ in range(N):
     n = int(sys.stdin.readline())
-    num[n] += 1
+    num[n] += 1 # 각 요소의 등장 횟 카운트 및 누적합
 
+# 배열을 순회하면서 각 위치별 카운트만큼 숫자 출력
 for i in range(10001):
     if num[i] != 0:
         for j in range(num[i]):
