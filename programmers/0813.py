@@ -7,8 +7,10 @@ def solution(citations):
     n = len(citations)
 
     for cnt in citations:
-        for c in range(cnt+1):
+        for c in range(cnt):
             h_index[c] += 1
+
+    # print(h_index)
 
     for i in range(n,-1,-1):
         if i <= h_index[i]:
