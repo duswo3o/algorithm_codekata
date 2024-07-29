@@ -1,43 +1,30 @@
 # 수 찾기 - ver.binary search
 
-from collections import deque
+import sys
 
-def make_tree(arr):
-    tree = [None]*(2**len(arr))
-    arr = deque(arr)
-
-    while arr:
-        a = arr.popleft()
-        idx = 0
-        while idx < len(tree):
-            if tree[idx] is None:
-                tree[idx] = a
-                break
-            if a > tree[idx]:
-                idx = idx*2+2
-            elif a < tree[idx]:
-                idx = idx*2+1
-    return tree
-
-def find_value(tree, value):
-    idx = 0
-    while idx < len(tree):
-        if tree[idx] == value:
+def binary_search(arr, n):
+    start, end = 0,  len(arr)
+    while start != end:
+        mid = (start + end) // 2
+        if n == arr[mid]:
             return 1
-        if tree[idx] is None:
+        if start == mid:
             return 0
-        if tree[idx] < value:
-            idx = idx*2+2
-        elif tree[idx] > value:
-            idx = idx*2+1
+        if mid == end:
+            return 0
+        elif n > arr[mid]:
+            start = mid
+        elif n < arr[mid]:
+            end = mid
+
     return 0
 
-N = int(input())
-an = list(map(int, input().split()))
-M = int(input())
-am = list(map(int, input().split()))
+N = int(sys.stdin.readline())
+an = list(map(int, sys.stdin.readline().split()))
+M = int(sys.stdin.readline())
+am = list(map(int, sys.stdin.readline().split()))
 
-an = make_tree(an)
-print(an)
+an.sort()
+
 for i in am:
-    print(find_value(an, i))
+    sys.stdout.write(str(binary_search(an, i))+"\n")
