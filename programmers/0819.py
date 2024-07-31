@@ -72,6 +72,10 @@ class Queue:
 
 
 def solution(priorities, location):
+
+    # if len(priorities) == 1:
+    #     return 1
+
     answer = 0
     que = Queue()
 
@@ -92,8 +96,10 @@ def solution(priorities, location):
             now_p = priorities.pop()
         if task[1] < now_p:
             que.push(task)
-    return answer
+    return answer+1
 
 
 print(solution([2, 1, 3, 2], 2))
 print(solution([1, 1, 9, 1, 1, 1], 0))
+print(solution([1], 0)) # 1
+print(solution([9,9,6],2)) # 3
