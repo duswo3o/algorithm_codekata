@@ -12,8 +12,6 @@ def solution(numbers, target):
         dfs(i + 1, total - numbers[i])
         return l
 
-
-    pm = len(numbers)
     a = dfs(0,0)
     # print(len(a))
     # print(a)
