@@ -32,12 +32,14 @@ else:
 # 틱택토 판 만들기
 TTT = [[0]*3 for _ in range(3)]
 for i in range(9):
+    # 틱택토 판에 그리기
     row, col = map(int, sys.stdin.readline().split())
     if i%2==0:
         TTT[row-1][col-1] = first_player
     else:
         TTT[row-1][col-1] = second_player
 
+    # 진행도중 결과가 나오면 게임 중단
     res = find_winner(TTT)
     if res !=0:
         print(res)
