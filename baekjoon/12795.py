@@ -45,7 +45,5 @@ for i in range(9):
         print(res)
         exit()
 
+# 게임이 끝났는데 이긴 사람이 없는 경우
 print(0)
-
-
-
