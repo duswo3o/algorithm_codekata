@@ -1,34 +1,19 @@
 # 롤케이크 자르기
 
-from collections import deque
+from collections import Counter
 
 def solution(topping):
     answer = 0
-    mid = len(topping)//2
+    front = set()
+    rear = Counter(topping)
 
-    front, rear = topping[:mid], deque(topping[mid:])
-    if len(set(front)) == len(set(rear)):
-        answer+=1
-
-    while front:
-        rear.appendleft(front.pop())
-        f,r = len(set(front)), len(set(rear))
-        if  f==r:
-            answer +=1
-            # continue
-        else:
-            break
-
-    front, rear = topping[:mid], deque(topping[mid:])
-    while rear:
-        front.append(rear.popleft())
-        f, r = len(set(front)), len(set(rear))
-        if f == r:
+    for i in topping:
+        front.add(i)
+        rear[i] -= 1
+        if rear[i] == 0:
+            del rear[i]
+        if len(front) == len(rear.keys()):
             answer += 1
-            # continue
-        else:
-            break
-
     return answer
 
 
