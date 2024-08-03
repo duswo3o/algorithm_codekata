@@ -1,31 +1,29 @@
 # 숫자 변환하기
 
+from collections import deque
+
 def solution(x, y, n):
-    ans = -1
 
-    def dfs(x, y, n, cnt):
-        nonlocal ans
+    def bfs(x, y, n):
+        cnt = 0
+        que = deque([(cnt, y)])
+        while que:
+            idx, now = que.popleft()
 
-        if int(y) != y:
-            return
+            if now > x:
+                cnt += 1
+                a,b,c = now-n, now/2, now/3
+                if x in [now-n, now/2, now/3]:
+                    return idx+1
+                que.append((cnt, now-n))
+                if now/2 == int(now/2):
+                    que.append((cnt, now/2))
+                if now/3 == int(now/3):
+                    que.append((cnt, now/3))
+        return -1
 
-        if x >= y:
-            if x == y:
-                # print(cnt)
-                if ans == -1:
-                    ans = cnt
-                else:
-                    ans = min(ans, cnt)
-                return
-            else:
-                # print(-1)
-                return
 
-        dfs(x, y-n, n, cnt + 1)
-        dfs(x, y/2, n, cnt + 1)
-        dfs(x, y/3, n, cnt + 1)
-
-    dfs(x,y,n,0)
+    ans = bfs(x,y,n)
     return ans
 
 print(solution(10, 40, 5))
