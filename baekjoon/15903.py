@@ -4,32 +4,33 @@
 #
 # class Heap:
 #     def __init__(self):
-#         self.heap = []
+#         self.heap = [None]
 #
 #     def heappush(self, value):
 #         self.heap.append(value)
 #
 #         idx = len(self.heap)-1
-#         while idx > 0:
-#             parent = (idx+1)//2-1
+#         parent = idx//2
+#         while parent > 0:
 #             if self.heap[parent] <= self.heap[idx]:
 #                 break
 #
 #             elif self.heap[parent] > self.heap[idx]:
 #                 self.heap[parent], self.heap[idx] = self.heap[idx], self.heap[parent]
 #                 idx = parent
+#                 parent = idx//2
 #
 #     def heappop(self):
-#         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
+#         self.heap[1], self.heap[-1] = self.heap[-1], self.heap[1]
 #         node = self.heap.pop()
 #
-#         idx = 0
+#         idx = 1
 #         while idx < len(self.heap)-1:
 #             left = idx*2
 #             right = idx*2+1
 #
 #             # 자식 노드가 없는 경우
-#             if right>len(self.heap)-1:
+#             if left>len(self.heap)-1:
 #                 break
 #
 #             # 왼쪽 자식 노드만 있는 경우
@@ -53,8 +54,8 @@
 #                     break
 #
 #         return node
-#
-#
+
+
 # n, m = map(int, sys.stdin.readline().split())
 # card_list = list(map(int, sys.stdin.readline().split()))
 #
@@ -69,7 +70,7 @@
 #     my_card.heappush(c)
 #     my_card.heappush(c)
 #
-# print(sum(my_card.heap))
+# print(sum(my_card.heap[1:]))
 
 
 
