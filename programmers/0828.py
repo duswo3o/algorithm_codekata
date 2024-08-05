@@ -9,14 +9,19 @@ def transfer_binary(n):
     return binary
 
 def trans_bit(binary):
+    if len(binary) == sum(binary):
+        binary.pop()
+        binary += [0, 1]
+        return binary
+
     for idx, b in enumerate(binary):
         if b == 0:
-            binary[idx] = 1
-            return binary
-
-    binary.pop()
-    binary += [0, 1]
-    return binary
+            if idx == 0:
+                binary[idx] = 1
+                return binary
+            else:
+                binary[idx] = 1
+                binary[idx-1] = 0
 
 def make_decimal(binary):
     decimal = 0
