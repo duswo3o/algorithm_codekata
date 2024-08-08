@@ -2,11 +2,14 @@
 
 def solution(numbers):
     answer = ''
+
+    # 모두 0으로 이루어진 경우
     if sum(numbers) == 0:
         return "0"
 
-    numbers = list(map(str, numbers))
-    my_number = []
+    numbers = list(map(str, numbers)) # 숫자를 문자열로 변경
+    my_number = [] # 실제 숫자와 비교할 숫자를 담을 리스트
+    # 각 자리수에 따라 4자리로 맞추어주기
     for number in numbers:
         if len(number) == 1:
             my_number.append((number, number*4))
@@ -17,6 +20,7 @@ def solution(numbers):
         else:
             my_number.append((number, number))
 
+    # 비교 문자열을 기준으로 정렬, 같은 경우 길이가 짧은 문자열 먼저
     my_number.sort(key = lambda x : (x[1], -len(x[0])), reverse=True)
     for num in my_number:
         answer += num[0]
